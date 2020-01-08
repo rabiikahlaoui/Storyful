@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  stories-service:
+    build: './stories-service'
+    depends_on:
+      - stories-service-db
+    volumes:
+      - ./stories-service:/opt/app
+
+  stories-service-db:
+    image: mysql:5.7.20
+    environment:
+      - MYSQL_DATABASE=db
+      - MYSQL_ROOT_PASSWORD=password
+
+  users-service:
+    build: './users-service'
+    depends_on:
+      - users-service-db
+    volumes:
+      - ./users-service:/opt/app
+
+  users-service-db:
+    image: mysql:5.7.20
+    environment:
+      - MYSQL_DATABASE=db
+      - MYSQL_ROOT_PASSWORD=password
