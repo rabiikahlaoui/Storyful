@@ -12,7 +12,7 @@ module.exports.up = (queryInterface, DataTypes) => {
         },
         passwordHash: {
             allowNull: false,
-            type: DataTypes.Char(64)
+            type: DataTypes.CHAR(64)
         },
         createdAt: {
             allowNull: false,
