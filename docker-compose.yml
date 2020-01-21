@@ -5,6 +5,8 @@ services:
     build: './stories-service'
     depends_on:
       - stories-service-db
+    environment:
+      - DB_URI=mysql://root:password@stories-service-db/db?charset=UTF8
     volumes:
       - ./stories-service:/opt/app
 
@@ -13,11 +15,15 @@ services:
     environment:
       - MYSQL_DATABASE=db
       - MYSQL_ROOT_PASSWORD=password
+    ports:
+      - 0.0.0.0:7200:3306
 
   users-service:
     build: './users-service'
     depends_on:
       - users-service-db
+    environment:
+      - DB_URI=mysql://root:password@users-service-db/db?charset=UTF8
     volumes:
       - ./users-service:/opt/app
 
@@ -26,3 +32,5 @@ services:
     environment:
       - MYSQL_DATABASE=db
       - MYSQL_ROOT_PASSWORD=password
+    ports:
+      - 0.0.0.0:7201:3306

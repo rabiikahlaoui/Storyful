@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "babel-watch -L src/index.js"
+    "start": "babel-watch -L src/index.js",
+    "db:migrate": "sequelize db:migrate",
+    "db:migrate:undo": "sequelize db:migrate:undo"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +18,9 @@
     "@babel/core": "^7.19.6",
     "@babel/polyfill": "^7.12.1",
     "@babel/preset-env": "^7.19.4",
-    "babel-plugin-module-resolver": "^4.1.0"
+    "babel-plugin-module-resolver": "^4.1.0",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.25.3",
+    "sequelize-cli": "^6.5.2"
   }
 }
