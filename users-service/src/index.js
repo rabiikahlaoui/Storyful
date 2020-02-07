@@ -1,1 +1,4 @@
-console.log("Users service")
+import "@babel/polyfill";
+
+import "#root/db/connection";
+import "#root/server/startServer";

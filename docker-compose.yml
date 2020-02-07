@@ -1,12 +1,24 @@
 version: '3'
 
 services:
+  api-gateway:
+    build: './api-gateway'
+    depends_on:
+      - stories-service
+      - users-service
+    ports:
+      - 7000:7000
+    volumes:
+      - ./api-gateway:/opt/app
+
   stories-service:
     build: './stories-service'
     depends_on:
       - stories-service-db
     environment:
       - DB_URI=mysql://root:password@stories-service-db/db?charset=UTF8
+    ports:
+      - 7100:7100
     volumes:
       - ./stories-service:/opt/app
 
@@ -24,6 +36,8 @@ services:
       - users-service-db
     environment:
       - DB_URI=mysql://root:password@users-service-db/db?charset=UTF8
+    ports:
+      - 7101:7101
     volumes:
       - ./users-service:/opt/app
 
