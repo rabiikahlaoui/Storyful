@@ -1,11 +1,7 @@
+import StoriesService from "#root/adapters/storiesService";
+
 const storiesResolver = async () => {
-    return [
-        {
-            id: 1,
-            title: "Lorem ipsum dolor sit amet",
-            description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr"
-        }
-    ]
+    return await StoriesService.fetchAllStories();
 };
 
 export default storiesResolver;
