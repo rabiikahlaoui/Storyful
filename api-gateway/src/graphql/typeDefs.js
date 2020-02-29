@@ -7,8 +7,17 @@ const typeDefs = gql`
     description: String!
   }
 
+  type User {
+    id: ID!
+    email: String!
+  }
+
   type Query {
     stories: [Stories!]!
+  }
+
+  type Mutation {
+    createUser (email: String!, password: String!): User!
   }
 `;
 
